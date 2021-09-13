@@ -1,4 +1,4 @@
-package com.yonghyeon.toyproject;
+package com.rhfy.toyproject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
