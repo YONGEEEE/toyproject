@@ -19,7 +19,7 @@ public class MainController {
     @Autowired
     private MemberService memberService;
 
-    @GetMapping("/healthCheck")
+    @GetMapping("/healthcheck")
     public Object hello(HttpServletRequest request, HttpServletResponse response) {
         response.setStatus(200);
         return "response Status 200!\n server is up!";
@@ -37,12 +37,12 @@ public class MainController {
     }
 
     @PostMapping(value = "/member/save", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<MemberDao> save(HttpServletRequest request, MemberDao memberDao) {
+    public ResponseEntity<MemberDao> save(HttpServletRequest request, @RequestBody MemberDao memberDao) {
         return new ResponseEntity<>(memberService.save(memberDao), HttpStatus.OK);
     }
 
     @PutMapping(value = "/member/update/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<MemberDao> updateMember(@PathVariable("id") String id, MemberDao memberDao) {
+    public ResponseEntity<MemberDao> updateMember(@PathVariable("id") String id, @RequestBody MemberDao memberDao) {
         Optional<MemberDao> member = memberService.updateById(id, memberDao);
         return new ResponseEntity<MemberDao>(member.get(), HttpStatus.OK);
     }
