@@ -9,21 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class MainController {
+public class MemberController {
 
     @Autowired
     private MemberService memberService;
-
-    @GetMapping("/healthcheck")
-    public Object hello(HttpServletRequest request, HttpServletResponse response) {
-        response.setStatus(200);
-        return "response Status 200!\n server is up!";
-    }
 
     @GetMapping("/members")
     public ResponseEntity<List<MemberDao>> getAllMembers() {
