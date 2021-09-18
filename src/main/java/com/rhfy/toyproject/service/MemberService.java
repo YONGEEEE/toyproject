@@ -12,12 +12,15 @@ import java.util.Optional;
 @Service
 public class MemberService {
 
+    private final MemberRepository memberRepository;
+
     @Autowired
-    private MemberRepository memberRepository;
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     public List<MemberDao> findAll() {
-        List<MemberDao> members = new ArrayList<>();
-        members.addAll(memberRepository.findAll());
+        List<MemberDao> members = new ArrayList<>(memberRepository.findAll());
         return members;
     }
 
