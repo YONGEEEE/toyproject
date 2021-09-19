@@ -24,6 +24,11 @@ public class MemberService {
         return members;
     }
 
+    public Optional<MemberDao> findByName(String name) {
+        Optional<MemberDao> member = memberRepository.findByName(name);
+        return member;
+    }
+
     public Optional<MemberDao> findById(String id) {
         Optional<MemberDao> member = memberRepository.findById(id);
         return member;

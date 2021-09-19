@@ -26,6 +26,7 @@ public class MemberController {
     @GetMapping("/member/{id}")
     public ResponseEntity<MemberDao> getMemberById(@PathVariable("id") String id) {
         Optional<MemberDao> member = memberService.findById(id);
+//        Optional<MemberDao> member = memberService.findByName(id);
         return new ResponseEntity<MemberDao>(member.get(), HttpStatus.OK);
     }
 

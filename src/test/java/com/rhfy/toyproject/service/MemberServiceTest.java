@@ -1,7 +1,6 @@
 package com.rhfy.toyproject.service;
 
 import com.rhfy.toyproject.dao.MemberDao;
-import org.apache.catalina.core.ApplicationContext;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
